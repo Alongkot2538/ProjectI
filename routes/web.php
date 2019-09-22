@@ -16,19 +16,23 @@
 Route::get('/welcome', function () {
     return view('welcome');
 });
-Route::view('home', 'home');
-Route::view('profile', 'profile');
-Route::view('index', 'index');
-Route::view('create', 'create');
-Route::view('create2', 'create2');
+Route::get('/', function () {
+    return redirect('/home');
+});
+
+Route::view('/home', 'home');
+Route::view('/profile', 'profile');
+Route::view('/index', 'index');
+Route::view('/create', 'create');
+Route::view('/create2', 'create2');
 
 
-Route::get('master',function (){
+Route::get('/master',function (){
     return view('create.master');
 });
 
-Route::get('layout',function (){
+Route::get('/layout',function (){
     return view('layout');
 });
 
-Route::name('imprimir')->get('/imprimir-pdf','Controller@imprimir');
+Route::name('imprimir')->get('/imprimir-pdf','GeneradorController@imprimir');
